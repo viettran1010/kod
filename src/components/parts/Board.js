@@ -56,7 +56,7 @@ export const Board = (props) => {
                 }
                 else {
                     match.push({ i, j })
-                    if (i == board.length - 1 && match.length >= 3)
+                    if (j == board.length - 1 && match.length >= 3)
                         matches.push(match)
                 }
             }
@@ -75,7 +75,7 @@ export const Board = (props) => {
                 }
                 else {
                     match.push({ "i": j, "j": i })
-                    if (j == board.length - 1 && match.length >= 3)
+                    if (i == board.length - 1 && match.length >= 3)
                         matches.push(match)
                 }
             }
@@ -96,7 +96,7 @@ export const Board = (props) => {
         let temp = JSON.parse(JSON.stringify(board))
         for (let i = 0; i < matches.length; i++) {
             for (let j = 0; j < matches[i].length; j++) {
-                temp[matches[i][j]["i"]][matches[i][j]["j"]] = Math.floor(Math.random() * 6);
+                temp[matches[i][j]["i"]][matches[i][j]["j"]] = Math.floor(Math.random() * 5);
             }
         }
         return temp;
