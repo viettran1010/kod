@@ -37,7 +37,7 @@ export const ScoreCard = (props) => {
                     <Card.Title className={styles.scoreTitle}>High score : </Card.Title>
                     <Card.Text className={styles.scoreText}>
                         <FontAwesomeIcon icon={faTrophy} className={styles.scoreIconHigh} />
-                <span className={styles.scoreHigh}>{props.hightScore}</span>
+                <span className={styles.scoreHigh}>{props.highScore}</span>
                     </Card.Text>
                     <hr className={styles.hrLine} />
                     <Card.Text className={styles.showLB}>Show Leaderboard</Card.Text>

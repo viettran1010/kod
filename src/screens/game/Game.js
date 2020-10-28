@@ -10,7 +10,7 @@ import axios from 'axios'
 export const Game = () => {
     const {authUser} = useContext(AuthUserCtx)
     const [score, setScore] = useState(0);
-    const [hightScore, setHightScore] = useState(0)
+    const [highScore, setHighScore] = useState(0)
     const updateScore = (newScore) => {
         setScore(score + newScore)
         console.log(score, "newscore ", newScore)
@@ -21,15 +21,21 @@ export const Game = () => {
                 authorization: 'Bearer ' + localStorage.getItem('jwt')
             }
         }).then((res) => {
-            setHightScore(res.data.highScore)
+            setHighScore(res.data.highScore)
         })
     },[])
-    console.log(authUser)
+    useEffect(()=>{
+        if(score >= highScore)
+        {
+            setHighScore(score)
+        }
+
+    },[])
     return (
         <div>
             <MainNav/>
             <Container className="d-flex justify-content-center align-items-center" style={{ marginTop: "2em" }}>
-                <ScoreCard score={score} hightScore={hightScore} />
+                <ScoreCard score={score} highScore={highScore} />
                 <Board updateScore={updateScore} className={styles.board} />
             </Container>
 
